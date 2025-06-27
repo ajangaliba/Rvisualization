@@ -1,20 +1,15 @@
 project:
   type: website
   output-dir: docs
-
 website:
-  title: "Rvis"
+  title: "R Görselleştirme Sitesi"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
-
+        text: Ana Sayfa
+      - href: Base_R_verilerin_gorsellestirilmesi.qmd
+        text: Görselleştirme
 format:
   html:
     theme: cosmo
-    css: styles.css
-    toc: true
-
-editor: visual
-
+    code-fold: true

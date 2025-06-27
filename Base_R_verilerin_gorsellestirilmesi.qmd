@@ -1,7 +1,11 @@
 ---
-title: "R Base ile Verilerin Gorselleştirilmesi"
+title: "R Base ile Verilerin Görselleştirilmesi"
 author: "Aslıhan Ç."
-format: html
+format:
+  html:
+    theme: cosmo
+    code-fold: true  # Kod bloklarını katlanabilir yapar
+    code-tools: true # Kod araçlarını ekler
 ---
 
 # Base R ile Verilerin Görselleştirilmesi

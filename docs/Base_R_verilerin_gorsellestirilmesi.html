@@ -8,7 +8,7 @@
 
 <meta name="author" content="Aslıhan Ç.">
 
-<title>R Base ile Verilerin Gorselleştirilmesi – Rvis</title>
+<title>R Base ile Verilerin Görselleştirilmesi – R Görselleştirme Sitesi</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,10 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -116,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Rvis</span>
+    <span class="navbar-title">R Görselleştirme Sitesi</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -127,11 +126,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Ana Sayfa</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link active" href="./Base_R_verilerin_gorsellestirilmesi.html" aria-current="page"> 
+<span class="menu-text">Görselleştirme</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -144,41 +143,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#base-r-ile-verilerin-görselleştirilmesi" id="toc-base-r-ile-verilerin-görselleştirilmesi" class="nav-link active" data-scroll-target="#base-r-ile-verilerin-görselleştirilmesi">Base R ile Verilerin Görselleştirilmesi</a>
-  <ul class="collapse">
-  <li><a href="#verilerin-görselleştirilmesi" id="toc-verilerin-görselleştirilmesi" class="nav-link" data-scroll-target="#verilerin-görselleştirilmesi">Verilerin Görselleştirilmesi</a></li>
-  <li><a href="#tarihçe" id="toc-tarihçe" class="nav-link" data-scroll-target="#tarihçe">Tarihçe</a></li>
-  <li><a href="#neden-önemlidir" id="toc-neden-önemlidir" class="nav-link" data-scroll-target="#neden-önemlidir">Neden Önemlidir?</a></li>
-  <li><a href="#hangi-veri-ile-hangi-tip-grafik-kullanılır" id="toc-hangi-veri-ile-hangi-tip-grafik-kullanılır" class="nav-link" data-scroll-target="#hangi-veri-ile-hangi-tip-grafik-kullanılır">Hangi Veri ile Hangi Tip Grafik Kullanılır?</a>
-  <ul class="collapse">
-  <li><a href="#kategorik-veriler-nitel-veriler" id="toc-kategorik-veriler-nitel-veriler" class="nav-link" data-scroll-target="#kategorik-veriler-nitel-veriler">Kategorik Veriler (Nitel Veriler)</a></li>
-  <li><a href="#sayısal-veriler-nicel-veriler" id="toc-sayısal-veriler-nicel-veriler" class="nav-link" data-scroll-target="#sayısal-veriler-nicel-veriler">Sayısal Veriler (Nicel Veriler)</a></li>
-  <li><a href="#iki-sayısal-değişken-arasındaki-ilişki" id="toc-iki-sayısal-değişken-arasındaki-ilişki" class="nav-link" data-scroll-target="#iki-sayısal-değişken-arasındaki-ilişki">İki Sayısal Değişken Arasındaki İlişki</a></li>
-  <li><a href="#zamana-bağlı-veriler-zaman-serileri" id="toc-zamana-bağlı-veriler-zaman-serileri" class="nav-link" data-scroll-target="#zamana-bağlı-veriler-zaman-serileri">Zamana Bağlı Veriler (Zaman Serileri)</a></li>
-  </ul></li>
-  <li><a href="#eksenler-ve-etiketler" id="toc-eksenler-ve-etiketler" class="nav-link" data-scroll-target="#eksenler-ve-etiketler">Eksenler ve Etiketler</a></li>
-  <li><a href="#örnek-veri-seti-ile-grafik-türlerinin-uygulanması" id="toc-örnek-veri-seti-ile-grafik-türlerinin-uygulanması" class="nav-link" data-scroll-target="#örnek-veri-seti-ile-grafik-türlerinin-uygulanması">Örnek Veri Seti ile Grafik Türlerinin Uygulanması</a>
-  <ul class="collapse">
-  <li><a href="#histogram-grafiği-oluşturulması" id="toc-histogram-grafiği-oluşturulması" class="nav-link" data-scroll-target="#histogram-grafiği-oluşturulması">Histogram Grafiği Oluşturulması</a></li>
-  <li><a href="#kutu-boxplot-grafiği" id="toc-kutu-boxplot-grafiği" class="nav-link" data-scroll-target="#kutu-boxplot-grafiği">Kutu (Boxplot) Grafiği</a></li>
-  <li><a href="#çubuk-barplot-grafiği" id="toc-çubuk-barplot-grafiği" class="nav-link" data-scroll-target="#çubuk-barplot-grafiği">Çubuk (Barplot) Grafiği</a></li>
-  <li><a href="#dağılım-grafiği-scatter-plot" id="toc-dağılım-grafiği-scatter-plot" class="nav-link" data-scroll-target="#dağılım-grafiği-scatter-plot">Dağılım Grafiği (Scatter Plot)</a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R Base ile Verilerin Gorselleştirilmesi</h1>
+<div class="quarto-title-block"><div><h1 class="title">R Base ile Verilerin Görselleştirilmesi</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -274,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Base-R-verilerin-gorsellestirilmesi_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Base_R_verilerin_gorsellestirilmesi_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -290,11 +261,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="örnek-veri-seti-ile-grafik-türlerinin-uygulanması">Örnek Veri Seti ile Grafik Türlerinin Uygulanması</h2>
 <p>Bu bölümde gerçek hayatta karşılaşabileceğimiz türden, yapay bir veri seti olan gelir_calisma kullanılarak farklı grafik türlerinin nasıl oluşturulduğu gösterilecektir. Veri setinin R’a yüklenmesi için gerekli kodlar aşağıda verilmektedir.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>veri <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"gelir_calisma.csv"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># veri</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(veri) <span class="co"># veri setinin ilk 5 satırını göstermek için kullanılmıştır. yalnızca veri yazılarak çalıştırılsaydı, R tüm veri setini gösterebilirdi. Burada veri yapısını kısaca görmek amacıyla kullnaılmıştır head fonksiyonu.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   isim yas    gelir calisma_durumu cinsiyet
 1 kisi1  44 50020.54           TRUE    Kadin
@@ -321,16 +295,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Çubuk grafik, görsel olarak histogram grafiğine benzer bir grafiktir. Ancak histogramda çubuklar birbirine bitişik oluşmaktadır. Sayısal verilerin sıklık dağılımını görselleştirmektedir. R2da histogram grafiği oluşturmak için “hist” fonksiyopnu kullanılmaktadır.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Yaşların Dağılımı</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(veri<span class="sc">$</span>yas,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Yaşların Dağılımı"</span>,</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Yaş"</span>,</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Kişi Sayısı"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Base-R-verilerin-gorsellestirilmesi_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Base_R_verilerin_gorsellestirilmesi_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -350,14 +327,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>R’da boxplot grafiği oluşturmak için “boxplot” fonksiyonu kullanılmaktadır.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(veri<span class="sc">$</span>gelir,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Gelir Dağılımı"</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Gelir (TL)"</span>,</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"salmon"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Base-R-verilerin-gorsellestirilmesi_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Base_R_verilerin_gorsellestirilmesi_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -366,15 +346,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Histogram grafiği verilierin sıklık dağılımını gösterir, grupları karşılaştırmak zordur. Ancak boxplot verilerin özet istatistiklerini gösterir ve grupları karşılaştırmak içn daha uygundur. Eğer veride aykırı bir değer bulunursa aykırı değerleri temsil eden noktalar oluşmaktadır.</p>
 <p>Grupların karşılaştırılmasına örnek olarak ise cinsiyete göre gelir dağılımı grafiği verilebilir. Aşağıda una örnek bir grafiğin nasıl oluşturulacağı gösterilmektedir.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(gelir <span class="sc">~</span> cinsiyet,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> veri,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Cinsiyete Gore Gelir Dagilimi"</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Gelir (TL)"</span>,</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"pink"</span>, <span class="st">"lightblue"</span>, <span class="st">"gray"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Base-R-verilerin-gorsellestirilmesi_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Base_R_verilerin_gorsellestirilmesi_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -393,16 +376,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>R’da çubuk grafiği çizmek için “barplot” fonksiyonu kullanılmaktadır.</p>
 <p>Aşağıda Cinsiyete Göre kişi sayısını gösteren çubuk grafiğin oluşturulmasına yönelik kodlar bulunmaktadır.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>table_cinsiyet <span class="ot">&lt;-</span> <span class="fu">table</span>(veri<span class="sc">$</span>cinsiyet) <span class="co"># bu fonksiyon her kategoride kaç gözlem olduğunu saymaktadır.</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(table_cinsiyet,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"pink"</span>, <span class="st">"skyblue"</span>, <span class="st">"lightgray"</span>),</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Cinsiyete Göre Dağılım"</span>,</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Cinsiyet"</span>,</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Kişi Sayısı"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Base-R-verilerin-gorsellestirilmesi_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Base_R_verilerin_gorsellestirilmesi_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -413,21 +399,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dağılım grafiği iki nicel değişken arasındaki ilişkiyi ve yayılımı analiz etmek için kullanılan bir analiz türüdür. X ekseni bağımsız değişkeni Y ekseni ise bağımlı değişkeni temsişl etmektedir. Her veri noktası bu iki değişken in bir kombinasyonunu göstermektedir. Bu grafikler eğilimleri (pozitif ya da negatif korelasyon) ve aykırı değerleri tespit etmek için idealdir.</p>
 <p>Aşağıda veri setinde bulunan yaş ve gelir verilerinin arasındaki ilişkiyi gösterir scatter plot örneği bulunmaktadır.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(veri<span class="sc">$</span>yas, veri<span class="sc">$</span>gelir,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Yaş ve Gelir İlişkisi"</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Yaş"</span>,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Gelir (TL)"</span>,</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"darkblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Base-R-verilerin-gorsellestirilmesi_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Base_R_verilerin_gorsellestirilmesi_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -503,6 +494,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -832,7 +874,231 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "R Base ile Verilerin Görselleştirilmesi"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Aslıhan Ç."</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cosmo</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true  # Kod bloklarını katlanabilir yapar</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true # Kod araçlarını ekler</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Base R ile Verilerin Görselleştirilmesi</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Verilerin Görselleştirilmesi</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>Ölçüm, sayım, deney, gözlem ya da araştırma yolu ile elde edilen nitel ve nicel verilerden oluşan veri setlerinin anlaşılması ve yorumlanmasında veri görselleştirmesi yöntemleri kullanılmaktadır. Veri görselleştirmesi grafik, tablo, harita gibi yöntemlerin kulanılması yolu ile verilerin yorumlanmasını kolaylaştırmayı sağlamaktadır. Görselleştirme hem analizlerin daha estetik görünmesini sağlamaktadır hem de verilerin hızlı anlaşılmasını sağlayarak keşif, ve karar alma süreçlerini kolaylaştırmaktadır.</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tarihçe</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>Veri görselleştirme yöntemleri yüzyıllardır kullanılmaktadır. 18. yy'da yaşamış olan İskoç mühendis William Playfair çubuk grafik, çizgi grafikk ve pasta grafiklerin öncüsü olmuştur. 19. yüzyılda da Florence Nightingale savaş zamanlarındaki sağlık koşullarını göstermek için "gül diyagramı"nı kullanmıştır.</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>20.nci yüzyılda ise bilgisayarlar gelişmiş ve veri görselleştirme hızlı bir ilerleme kaydetmiştir. 21. yüzyılda iseinteraktif görseller, büyük veri, yapay zeka ile birlikte bu alan daha önemli hale gelmiştir.</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Neden Önemlidir?</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Sayısal veriler arasındaki ilişkilerin fark edilmesini,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Eğilimlerin, örüntülerin ve aykırı değerlerin tespitini kolaylaştırmaktadır.</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Bir veri kümesinin en kullanışlı bilgilerinin vurgulanmasını sağlamaktadır.</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hangi Veri ile Hangi Tip Grafik Kullanılır?</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>Veri türleri ile kullanılacak grafik tipi arasında doğrudan bir ilişki bulunmaktadır. Veri yapısına veya analiz amacına göre grafik türü seçilmesi önem taşımaktadır. Aşağıda yaygın veri türleri ve uygun grafik türleri özetlenmektedir.</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Kategorik Veriler (Nitel Veriler)</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>Kategorik veriler, sınıflandırmalar veya etiketlerden oluşmaktadır. Örneğin; cinsiyet, renk, şehir, vb.</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>Bu verilere uygun olan grafikler,</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Çubuk Grafik (Barplot)</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Pasta Grafik (Pie Chart)</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sayısal Veriler (Nicel Veriler)</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>Bu veriler ölçülebilir değerlerdir. Örneğin; gelir, yaş, ağırlık, sıcaklık vb.</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>Bu verilere uygun olan grafikler;</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Histogram</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Kutu Grafiği (Boxplot)</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### İki Sayısal Değişken Arasındaki İlişki</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>İki nicel değişkenin arasındaki ilişki incelenmek istendiğinde kullanılmaktadır.</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>Uygun Grafik;</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Dağılım Grafiği (Scatter Plot)</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Zamana Bağlı Veriler (Zaman Serileri)</span></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>Zaman içinde değişen veriler için kullanılmakatdır.</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>Uygun Grafik;</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Çizgi Grafiği (Line Chart)</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Eksenler ve Etiketler</span></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>Veriler görselleştrilirken oluşturulan grafiğin doğru anlaşılabilmesi amacıyla **eksenler** (x ve y) ve bu eksenlere ait **etiketler** (açıklayıcı metinler) büyük önem taşımaktadır.</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>**Eksenler:** veri değerlerinin nerede konumlandığını gösterirken</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>**Etiketler:** neyin neye karşı çizildiğini anlatmaktadır</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>X ekseninde genellikle bağımsız değişken yer alır. Bağımsız değişken bir deneye veya analizde diğer değişkenleri etkilediği düşünülen, araştırmacı tarafından kontrol /manipüle edilen değişkendir. Daha basit bir şekilde ifade etmek gerekirse "neden" ya da "etki yaratan" değişken denilebilir..</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>Y ekseninde isew genellikle bağımlı değişken bulunmaktadır. Bağımlı değişken bir deney/analizde bağımsız değişkenin etkisi ile değiştiği düşünülen ve ölçülen değişkendir. Basitçe "sonuç", ya da "etkilenen" değişken olarak görülebilir.</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>**Örneğin** sulama miktarının bir bitkinin büyüme hızına etkisi araştırılıyorsa;</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Bağımsız Değişken:* Sulama miktarı (örn; 500ml, 1000ml)</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>*Bağımlı Değişken:* Bitkinin büyüme hızı (örn: günlük 3mm, aylık 4 cm)</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE}</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>)</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">12</span>)</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(y, <span class="at">names.arg =</span> x, <span class="at">main =</span> <span class="st">"Gruplara Gore Ortalama Puan"</span>, </span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Gruplar, eksen x"</span>, <span class="at">ylab =</span> <span class="st">"Puan, eksan y"</span>, <span class="at">col =</span> <span class="st">"skyblue"</span>)</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>***Öneriler:***</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Etiketlerde Gelir (TL), Sıcaklık (°C) gibi birimlerin belirtilmesi anlamayı kolaylaştırmaktadır.</span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Eksensiz veya etiketsiz grafikler, görsel oluşsa da **anlamsız** olabilmektedir.</span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Grafik başlığı olmadan verilen mesaj eksik kalabilmektedir.</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## Örnek Veri Seti ile Grafik Türlerinin Uygulanması</span></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>Bu bölümde gerçek hayatta karşılaşabileceğimiz türden, yapay bir veri seti olan gelir_calisma kullanılarak farklı grafik türlerinin nasıl oluşturulduğu gösterilecektir. Veri setinin R'a yüklenmesi için gerekli kodlar aşağıda verilmektedir.</span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=TRUE}</span></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>veri <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"gelir_calisma.csv"</span>)</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="co"># veri</span></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(veri) <span class="co"># veri setinin ilk 5 satırını göstermek için kullanılmıştır. yalnızca veri yazılarak çalıştırılsaydı, R tüm veri setini gösterebilirdi. Burada veri yapısını kısaca görmek amacıyla kullnaılmıştır head fonksiyonu.</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>Görüldüğü gibi, veri setinde farklı değişken türleri bulunmaktadır.</span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>***Sayısal değişkenler:*** yas, gelir</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>***Kategorik değişkenler:*** cinsiyet, calisma_durumu</span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>***ID niteliği taşıyan:*** isim</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a>Bu değişkenler, farklı türlerde veriler olup, her veri türünün kendine uygun bir grafik oluşturmada kullanılması önem taşımaktadır. Yukarıda veri tipi-grafik önerileri zaten yapılmış olup, aşağıda bu veriler ile oluşturulmuş örnek grafikler sunulmaktadır.</span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### Histogram Grafiği Oluşturulması</span></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>Histogram grafiği, sayısal (nicel) verilerin dağılımını görselleştirmek için kullanılan bir grafik türüdür. Verilerin sıklıklarını (ne kadar sık meydana geldiklerini) belirli aralıklara (bin, yüz) bölerek göstermektedir. Her bir çubuk, belirli bir değer aralığındaki veri noktalarının sayılarını temsil etmektedir.</span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Sayısal verilerini dağılımını anlamak için,</span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Verilerin yoğunlaştığı bölgeleri, aykırı değerleri veya eğilimleri görmek için kullanılmakatdır.</span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a>Çubuk grafik, görsel olarak histogram grafiğine benzer bir grafiktir. Ancak histogramda çubuklar birbirine bitişik oluşmaktadır. Sayısal verilerin sıklık dağılımını görselleştirmektedir. R2da histogram grafiği oluşturmak için "hist" fonksiyopnu kullanılmaktadır.</span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=TRUE}</span></span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="co"># Yaşların Dağılımı</span></span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(veri<span class="sc">$</span>yas,</span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Yaşların Dağılımı"</span>,</span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Yaş"</span>,</span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Kişi Sayısı"</span>)</span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a><span class="sc">\-</span>- Veri setindeki başka hangi değişken ile histogram grafiği oluşturulabilir?</span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### Kutu (Boxplot) Grafiği</span></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a>**Kutu Grafiği** sayısal (nicel) verilerin dağılımını, merkezi eğilimini, yayılımını ve aykırı değerlerini görselleştirmek için kullanılan bir grafik türüdür. Verilerin istatistiksel özetini bir grafikte göstermeyi sağlar ve farklı grupların karşılaştırılmasında etkilidir.</span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a>Bir kutu grafiği aşağıdaki istatistikleri özetlemektedir;</span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>En küçük değer (minimum)</span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Birinci çeyrek (Q1)</span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Medyan (Q2)</span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Üçüncü Çeyrek (Q3)</span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>En büyük değer (maksimum)</span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a>R'da boxplot grafiği oluşturmak için "boxplot" fonksiyonu kullanılmaktadır.</span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE}</span></span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(veri<span class="sc">$</span>gelir,</span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Gelir Dağılımı"</span>,</span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Gelir (TL)"</span>,</span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"salmon"</span>)</span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a>**Not:** grafikteki alt çizgi min, kutunun alt sınırı q1, ortadaki siyah çizgi medyan, kutunun üst sınırı q3, üst çizgi max değeri ifade etmektedir.</span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>Histogram grafiği verilierin sıklık dağılımını gösterir, grupları karşılaştırmak zordur. Ancak boxplot verilerin özet istatistiklerini gösterir ve grupları karşılaştırmak içn daha uygundur. Eğer veride aykırı bir değer bulunursa aykırı değerleri temsil eden noktalar oluşmaktadır.</span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a>Grupların karşılaştırılmasına örnek olarak ise cinsiyete göre gelir dağılımı grafiği verilebilir. Aşağıda una örnek bir grafiğin nasıl oluşturulacağı gösterilmektedir.</span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE}</span></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(gelir <span class="sc">~</span> cinsiyet,</span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> veri,</span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Cinsiyete Gore Gelir Dagilimi"</span>,</span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Gelir (TL)"</span>,</span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"pink"</span>, <span class="st">"lightblue"</span>, <span class="st">"gray"</span>))</span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a><span class="fu">### Çubuk (Barplot) Grafiği</span></span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a>Genellikle kategorik verilerin görselleştirilmesinde tercih edilmektedir. Barplot adı da verilen çubuk grafiği her bir kategori için bir çubuk çizmektedir ve çubukların yüksekliği, o kategoriye karşılık gelen değerin büyüklüğünü temsil etmektedir.</span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a>**Çubuk Grafiğin Özellikleri:**</span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>X - Ekseni kategorik verileri göstermektedir. (örn: şehirler, gruplar)</span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Y - Ekseni her kategoriye ait sayısal değeri göstermektedir. (frekans, toplam, ortalama vb)</span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Çubuklar histogramdan farklı şşekilde aralıklı oluşmaktadır.</span>
+<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Kategorik verilerin karşılaştırılmasını kolaylaştırmayı amaçlamaktadır.</span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a>R'da çubuk grafiği çizmek için "barplot" fonksiyonu kullanılmaktadır.</span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a>Aşağıda Cinsiyete Göre kişi sayısını gösteren çubuk grafiğin oluşturulmasına yönelik kodlar bulunmaktadır.</span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE}</span></span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a>table_cinsiyet <span class="ot">&lt;-</span> <span class="fu">table</span>(veri<span class="sc">$</span>cinsiyet) <span class="co"># bu fonksiyon her kategoride kaç gözlem olduğunu saymaktadır.</span></span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(table_cinsiyet,</span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"pink"</span>, <span class="st">"skyblue"</span>, <span class="st">"lightgray"</span>),</span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Cinsiyete Göre Dağılım"</span>,</span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Cinsiyet"</span>,</span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Kişi Sayısı"</span>)</span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dağılım Grafiği (Scatter Plot)</span></span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a>Dağılım grafiği iki nicel değişken arasındaki ilişkiyi ve yayılımı analiz etmek için kullanılan bir analiz türüdür. X ekseni bağımsız değişkeni Y ekseni ise bağımlı değişkeni temsişl etmektedir. Her veri noktası bu iki değişken in bir kombinasyonunu göstermektedir. Bu grafikler eğilimleri (pozitif ya da negatif korelasyon) ve aykırı değerleri tespit etmek için idealdir.</span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a>Aşağıda veri setinde bulunan yaş ve gelir verilerinin arasındaki ilişkiyi gösterir scatter plot örneği bulunmaktadır.</span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo = TRUE}</span></span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(veri<span class="sc">$</span>yas, veri<span class="sc">$</span>gelir,</span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Yaş ve Gelir İlişkisi"</span>,</span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Yaş"</span>,</span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Gelir (TL)"</span>,</span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>,</span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"darkblue"</span>)</span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
