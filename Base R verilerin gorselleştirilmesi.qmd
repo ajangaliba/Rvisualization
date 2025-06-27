@@ -1,0 +1,81 @@
+---
+title: "R Base ile Verilerin Gorselleştirilmesi"
+author: "Aslıhan Ç."
+---
+
+# Base R ile Verilerin Görselleştirilmesi
+
+## Verilerin Görselleştirilmesi
+
+Ölçüm, sayım, deney, gözlem ya da araştırma yolu ile elde edilen nitel ve nicel verilerden oluşan veri setlerinin anlaşılması ve yorumlanmasında veri görselleştirmesi yöntemleri kullanılmaktadır. Veri görselleştirmesi grafik, tablo, harita gibi yöntemlerin kulanılması yolu ile verilerin yorumlanmasını kolaylaştırmayı sağlamaktadır. Görselleştirme hem analizlerin daha estetik görünmesini sağlamaktadır hem de verilerin hızlı anlaşılmasını sağlayarak keşif, ve karar alma süreçlerini kolaylaştırmaktadır.
+
+## Tarihçe
+
+Veri görselleştirme yöntemleri yüzyıllardır kullanılmaktadır. 18. yy'da yaşamış olan İskoç mühendis William Playfair çubuk grafik, çizgi grafikk ve pasta grafiklerin öncüsü olmuştur. 19. yüzyılda da Florence Nightingale savaş zamanlarındaki sağlık koşullarını göstermek için "gül diyagramı"nı kullanmıştır.
+
+20.nci yüzyılda ise bilgisayarlar gelişmiş ve veri görselleştirme hızlı bir ilerleme kaydetmiştir. 21. yüzyılda iseinteraktif görseller, büyük veri, yapay zeka ile birlikte bu alan daha önemli hale gelmiştir.
+
+## Neden Önemlidir?
+
+-   Sayısal veriler arasındaki ilişkilerin fark edilmesini,
+
+-   Eğilimlerin, örüntülerin ve aykırı değerlerin tespitini kolaylaştırmaktadır.
+
+-   Bir veri kümesinin en kullanışlı bilgilerinin vurgulanmasını sağlamaktadır.
+
+## Hangi Veri ile Hangi Tip Grafik Kullanılır?
+
+Veri türleri ile kullanılacak grafik tipi arasında doğrudan bir ilişki bulunmaktadır. Veri yapısına veya analiz amacına göre grafik türü seçilmesi önem taşımaktadır. Aşağıda yaygın veri türleri ve uygun grafik türleri özetlenmektedir.
+
+### Kategorik Veriler (Nitel Veriler)
+
+Kategorik veriler, sınıflandırmalar veya etiketlerden oluşmaktadır. Örneğin; cinsiyet, renk, şehir, vb.
+
+Bu verilere uygun olan grafikler,
+
+-   Çubuk Grafik (Barplot)
+
+-   Pasta Grafik (Pie Chart)
+
+### Sayısal Veriler (Nicel Veriler)
+
+Bu veriler ölçülebilir değerlerdir. Örneğin; gelir, yaş, ağırlık, sıcaklık vb.
+
+Bu verilere uygun olan grafikler;
+
+-   Histogram
+
+-   Kutu Grafiği (Boxplot)
+
+### İki Sayısal Değişken Arasındaki İlişki
+
+İki nicel değişkenin arasındaki ilişki incelenmek istendiğinde kullanılmaktadır.
+
+Uygun Grafik;
+
+-   Dağılım Grafiği (Scatter Plot)
+
+### Zamana Bağlı Veriler (Zaman Serileri)
+
+Zaman içinde değişen veriler için kullanılmakatdır.
+
+Uygun Grafik;
+
+-   Çizgi Grafiği (Line Chart)
+
+## Eksenler ve Etiketler
+
+Veriler görselleştrilirken oluşturulan grafiğin doğru anlaşılabilmesi amacıyla **eksenler** (x ve y) ve bu eksenlere ait **etiketler** (açıklayıcı metinler) büyük önem taşımaktadır.
+
+**Eksenler:** veri değerlerinin nerede konumlandığını gösterirken
+
+**Etiketler:** neyin neye karşı çizildiğini anlatmaktadır.
+
+```{r echo=FALSE}
+
+x <- c("A", "B", "C")
+y <- c(10, 15, 12)
+
+barplot(y, names.arg = x, main = "Gruplara Gore Ortalama Puan", 
+        xlab = "X ekseni - gruplar", ylab = "Y ekseni - Puan", col = "skyblue")
+```
