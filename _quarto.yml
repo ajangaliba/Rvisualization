@@ -1,15 +1,14 @@
 project:
   type: website
   output-dir: docs
+
 website:
-  title: "R Görselleştirme Sitesi"
+  title: "R Görselleştirme"
   navbar:
     left:
       - href: index.qmd
-        text: Ana Sayfa
+        text: Anasayfa
       - href: Base_R_verilerin_gorsellestirilmesi.qmd
-        text: Görselleştirme
-format:
-  html:
-    theme: cosmo
-    code-fold: true
+        text: Base R Grafikler
+      - href: ggplot2.qmd
+        text: ggplot2
