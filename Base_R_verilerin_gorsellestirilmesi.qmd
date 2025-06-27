@@ -4,8 +4,8 @@ author: "Aslıhan Ç."
 format:
   html:
     theme: cosmo
-    code-fold: true  # Kod bloklarını katlanabilir yapar
-    code-tools: true # Kod araçlarını ekler
+    code-fold: true
+    code-tools: true
 ---
 
 # Base R ile Verilerin Görselleştirilmesi
